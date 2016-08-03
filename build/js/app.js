@@ -25,6 +25,17 @@ Calculator.prototype.pingPong = function(goal) {
 exports.calculatorModule = Calculator;
 
 },{}],3:[function(require,module,exports){
+function Weather(){
+
+}
+
+Weather.prototype.getWeather = function(){
+  console.log("Hi! I'm a weather object.")
+};
+
+exports.weatherModule = Weather;
+
+},{}],4:[function(require,module,exports){
 var Calculator = require('./../js/pingpong.js').calculatorModule;
 
 $(document).ready(function() {
@@ -53,8 +64,11 @@ $(document).ready(function(){
 });
 
 var apiKey = require('./../.env').apiKey;
+var Weather = require('./../js/weather.js').weatherModule;
 
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
+  currentWeatherObject.getWeather();
   $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
@@ -66,4 +80,4 @@ $(document).ready(function() {
   });
 });
 
-},{"./../.env":1,"./../js/pingpong.js":2}]},{},[3]);
+},{"./../.env":1,"./../js/pingpong.js":2,"./../js/weather.js":3}]},{},[4]);

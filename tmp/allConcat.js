@@ -26,8 +26,11 @@ $(document).ready(function(){
 });
 
 var apiKey = require('./../.env').apiKey;
+var Weather = require('./../js/weather.js').weatherModule;
 
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
+  currentWeatherObject.getWeather();
   $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
